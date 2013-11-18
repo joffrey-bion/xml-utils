@@ -1,0 +1,4 @@
+com.jbion.utils.xml
+com.jbion.utils.xml.serialization.parameters
+com.jbion.utils.xml.serialization.serializers
+com.jbion.xml.serialization.parameters

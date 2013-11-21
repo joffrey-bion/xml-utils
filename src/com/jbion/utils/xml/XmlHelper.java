@@ -61,7 +61,7 @@ public class XmlHelper {
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            return documentBuilder.parse(Paths.fixURI(xmlFilePath));
+            return documentBuilder.parse(Paths.fix(xmlFilePath));
         } catch (ParserConfigurationException e) {
             throw new RuntimeException("Internal error: ParserConfigurationException: "
                     + e.getMessage());

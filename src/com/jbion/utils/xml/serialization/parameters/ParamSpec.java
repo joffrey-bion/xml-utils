@@ -132,21 +132,6 @@ class ParamSpec {
         }
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || !(o instanceof ParamSpec)) {
-            return false;
-        }
-        ParamSpec ps = (ParamSpec) o;
-        boolean equals = true;
-        equals = equals && key.equals(ps.key);
-        equals = equals && serializer.equals(ps.serializer);
-        equals = equals && (required == ps.required);
-        equals = equals && (defaultValue == ps.defaultValue);
-        equals = equals && description.equals(ps.description);
-        return equals;
-    }
-
     /**
      * Returns a readable {@code String} representation of the default value of this
      * parameter specification.
@@ -188,4 +173,24 @@ class ParamSpec {
         }
         return sb.toString();
     }
+
+	@Override
+	public boolean equals(Object o) {
+	    if (o == null || !(o instanceof ParamSpec)) {
+	        return false;
+	    }
+	    ParamSpec ps = (ParamSpec) o;
+	    boolean equals = true;
+	    equals = equals && key.equals(ps.key);
+	    equals = equals && serializer.equals(ps.serializer);
+	    equals = equals && (required == ps.required);
+	    equals = equals && (defaultValue == ps.defaultValue);
+	    equals = equals && description.equals(ps.description);
+	    return equals;
+	}
+
+	@Override
+	public int hashCode() {
+		return key.hashCode();
+	}
 }

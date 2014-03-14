@@ -21,9 +21,9 @@ public class Test {
     public static void main(String[] args) {
         ParamsSchema schema = new ParamsSchema("test", 1);
         schema.addParam("myBool", SimpleSerializer.BOOLEAN);
-        schema.addParam("myOptionalDouble", SimpleSerializer.DOUBLE, false, 4.0);
-        schema.addParam("myRequiredDouble", SimpleSerializer.DOUBLE, true, 4.0);
-        schema.addParam("array", ArraySerializer.INTEGER_ARRAY, false, new Integer[] { 1, 2 });
+        schema.addOptionalParam("myOptionalDouble", SimpleSerializer.DOUBLE, 4.0);
+        schema.addOptionalParam("myRequiredDouble", SimpleSerializer.DOUBLE, 4.0);
+        schema.addOptionalParam("array", ArraySerializer.INTEGER_ARRAY, new Integer[] { 1, 2 });
         System.out.println(schema);
         System.out.println();
         System.out.println("Parameters version 1:");
@@ -34,7 +34,7 @@ public class Test {
         System.out.println();
         ParamsSchema schema2 = new ParamsSchema("test", 2);
         schema2.addAll(schema);
-        schema2.addParam("sarray", ArraySerializer.STRING_ARRAY, false, new String[] { "a,", "b\\",
+        schema2.addOptionalParam("sarray", ArraySerializer.STRING_ARRAY, new String[] { "a,", "b\\",
                 "c,d" });
         schema2.addParam("co", new MyObjectSerializer(), "this is a complex object");
         System.out.println(schema2);

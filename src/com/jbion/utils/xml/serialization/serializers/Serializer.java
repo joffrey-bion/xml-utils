@@ -55,6 +55,15 @@ public abstract class Serializer<T> {
     }
 
     /**
+     * Returns the class handled by this serializer.
+     * 
+     * @return the class handled by this serializer.
+     */
+    public Class<?> getType() {
+        return clazz;
+    }
+
+    /**
      * Returns the name of the class handled by this serializer.
      * 
      * @return the name of the class handled by this serializer.
@@ -146,13 +155,5 @@ public abstract class Serializer<T> {
     @Override
     public String toString() {
         return getTypeName() + " serializer";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || !(o instanceof Serializer)) {
-            return false;
-        }
-        return clazz.equals(((Serializer<?>) o).clazz);
     }
 }

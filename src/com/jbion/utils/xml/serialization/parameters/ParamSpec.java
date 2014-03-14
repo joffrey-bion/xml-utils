@@ -182,7 +182,7 @@ class ParamSpec {
 	    ParamSpec ps = (ParamSpec) o;
 	    boolean equals = true;
 	    equals = equals && key.equals(ps.key);
-	    equals = equals && serializer.equals(ps.serializer);
+	    equals = equals && serializer.getType().equals(ps.serializer.getType());
 	    equals = equals && (required == ps.required);
 	    equals = equals && (defaultValue == ps.defaultValue);
 	    equals = equals && description.equals(ps.description);

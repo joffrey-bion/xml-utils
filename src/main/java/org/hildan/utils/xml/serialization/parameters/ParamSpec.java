@@ -8,13 +8,14 @@ import org.w3c.dom.DOMException;
 
 /**
  * Describes the specification for one particular parameter.
- * 
+ *
  * @author <a href="mailto:joffrey.bion@gmail.com">Joffrey Bion</a>
  */
 class ParamSpec {
 
     @SuppressWarnings("serial")
     public static class InvalidKeyException extends RuntimeException {
+
         public InvalidKeyException(String s) {
             super(s);
         }
@@ -24,18 +25,22 @@ class ParamSpec {
      * The name of this parameter.
      */
     public final String key;
+
     /**
      * The serializer used for the class of this parameter.
      */
     public final Serializer<?> serializer;
+
     /**
      * Whether this parameter is required or not.
      */
     public final boolean required;
+
     /**
      * The default value for this parameter if it is not required.
      */
     public final Object defaultValue;
+
     /**
      * An optional description of this parameter.
      */
@@ -43,7 +48,7 @@ class ParamSpec {
 
     /**
      * Creates a required parameter specification, thus no default value is needed.
-     * 
+     *
      * @param key
      *            The name of the parameter.
      * @param serializer
@@ -55,7 +60,7 @@ class ParamSpec {
 
     /**
      * Creates a required parameter specification, thus no default value is needed.
-     * 
+     *
      * @param key
      *            The name of the parameter.
      * @param serializer
@@ -69,7 +74,7 @@ class ParamSpec {
 
     /**
      * Creates a parameter specification.
-     * 
+     *
      * @param key
      *            The name of the parameter.
      * @param serializer
@@ -85,7 +90,7 @@ class ParamSpec {
 
     /**
      * Creates a parameter specification.
-     * 
+     *
      * @param key
      *            The name of the parameter.
      * @param serializer
@@ -97,8 +102,7 @@ class ParamSpec {
      * @param description
      *            A description of this parameter.
      */
-    public <T> ParamSpec(String key, Serializer<T> serializer, boolean required, T defaultValue,
-            String description) {
+    public <T> ParamSpec(String key, Serializer<T> serializer, boolean required, T defaultValue, String description) {
         if (key == null) {
             throw new IllegalArgumentException("The parameter's key cannot be null.");
         }
@@ -115,7 +119,10 @@ class ParamSpec {
 
     /**
      * Throws a {@link InvalidKeyException} if the specified key is not a valid key.
-     * 
+     *
+     * @param key
+     *            the key to check
+     *
      * @throws InvalidKeyException
      *             If the specified key is not a valid key.
      */
@@ -132,9 +139,9 @@ class ParamSpec {
     }
 
     /**
-     * Returns a readable {@code String} representation of the default value of this
-     * parameter specification.
-     * 
+     * Returns a readable {@code String} representation of the default value of this parameter
+     * specification.
+     *
      * @return A {@code String} representing the default value of the parameter.
      */
     private String defaultToString() {
@@ -173,23 +180,23 @@ class ParamSpec {
         return sb.toString();
     }
 
-	@Override
-	public boolean equals(Object o) {
-	    if (o == null || !(o instanceof ParamSpec)) {
-	        return false;
-	    }
-	    ParamSpec ps = (ParamSpec) o;
-	    boolean equals = true;
-	    equals = equals && key.equals(ps.key);
-	    equals = equals && serializer.getType().equals(ps.serializer.getType());
-	    equals = equals && (required == ps.required);
-	    equals = equals && (defaultValue == ps.defaultValue);
-	    equals = equals && description.equals(ps.description);
-	    return equals;
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || !(o instanceof ParamSpec)) {
+            return false;
+        }
+        ParamSpec ps = (ParamSpec) o;
+        boolean equals = true;
+        equals = equals && key.equals(ps.key);
+        equals = equals && serializer.getType().equals(ps.serializer.getType());
+        equals = equals && (required == ps.required);
+        equals = equals && (defaultValue == ps.defaultValue);
+        equals = equals && description.equals(ps.description);
+        return equals;
+    }
 
-	@Override
-	public int hashCode() {
-		return key.hashCode();
-	}
+    @Override
+    public int hashCode() {
+        return key.hashCode();
+    }
 }

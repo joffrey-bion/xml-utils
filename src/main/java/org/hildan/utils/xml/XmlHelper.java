@@ -127,11 +127,9 @@ public class XmlHelper {
      *     </name>
      *     <last>BlahBlah</last>
      * </root>
-     *
+     * 
      * getFirstDirectChild(root, "last"); // returns the element corresponding to <last>BlahBlah</last>}
      * </pre>
-     *
-     * </p>
      *
      * @param parent
      *            The {@link Element} to get the child from.
@@ -236,11 +234,9 @@ public class XmlHelper {
      *     </name>
      *     <last>BlahBlah</last>
      * </root>
-     *
+     * 
      * getField(root, "last"); // returns "Smith"}
      * </pre>
-     *
-     * </p>
      *
      * @param ancestor
      *            The starting point in the XML tree to look for descendants.
@@ -264,11 +260,9 @@ public class XmlHelper {
      *
      * <pre>
      * {@code <name>John</name>
-     *
+     * 
      * getContent(name); // returns "John"}
      * </pre>
-     *
-     * </p>
      *
      * @param node
      *            The node to get the field child from.
